@@ -96,9 +96,7 @@ const install = (
   } else {
     extensionInstalled =
       !!extensionName &&
-        // @ts-ignore
       BrowserWindow.getDevToolsExtensions &&
-        // @ts-ignore
       BrowserWindow.getDevToolsExtensions().hasOwnProperty(extensionName);
   }
 
@@ -115,7 +113,6 @@ const install = (
           .find((e: { name: string }) => e.name).id;
         (session.defaultSession as any).removeExtension(extensionId);
       } else {
-        // @ts-ignore
         BrowserWindow.removeDevToolsExtension(extensionName);
       }
     }
@@ -129,7 +126,6 @@ const install = (
         });
     }
 
-    // @ts-ignore
     const name = BrowserWindow.addDevToolsExtension(extensionFolder); // eslint-disable-line
 
     fs.writeFileSync(
